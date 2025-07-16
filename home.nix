@@ -10,6 +10,8 @@
   imports = [
     ./home/kits/conf/term/ghostty.nix
     ./home/kits/conf/browser/brave.nix
+    ./home/kits/conf/discord/discord.nix
+    ./home/kits/conf/shell/yazi.nix
   ];
 
   home.file = {
