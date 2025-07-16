@@ -13,6 +13,8 @@
     ./home/kits/conf/discord/discord.nix
     ./home/kits/conf/shell/yazi.nix
     ./home/kits/conf/discord/signal-desktop.nix
+    ./home/kits/conf/shell/neovim.nix
+    ./home/kits/conf/shell/git.nix
   ];
 
   home.file = {

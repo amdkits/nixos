@@ -81,9 +81,7 @@
   environment.systemPackages = with pkgs; [
    vim 
    wget
-   ghostty
    git
-   neovim
    neofetch
    htop
   ];
