@@ -84,7 +84,6 @@
    git
    neofetch
    htop
-   bpytop
    curl
    tree
    gcc
@@ -97,7 +96,7 @@ programs.steam = {
   };
 
   hardware.opengl = {
-    enable = true;gcc
+    enable = true;
     driSupport32Bit = true;
   };
 
