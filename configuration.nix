@@ -89,7 +89,7 @@
    gcc
    gnumake
    # for doom-emacs
-   emacs29-pgtk
+   emacs30
    fd
    ripgrep
    gnugrep
