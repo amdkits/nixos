@@ -82,6 +82,7 @@
    vim 
    wget
    git
+   gh
    neofetch
    htop
    curl
