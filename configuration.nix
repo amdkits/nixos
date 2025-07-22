@@ -88,6 +88,11 @@
    tree
    gcc
    gnumake
+   # for doom-emacs
+   emacs29-pgtk
+   fd
+   ripgrep
+   gnugrep
   ];
 
 programs.steam = {
