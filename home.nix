@@ -15,6 +15,7 @@
     ./home/kits/conf/discord/signal-desktop.nix
     ./home/kits/conf/shell/neovim.nix
     ./home/kits/conf/shell/git.nix
+    ./home/kits/conf/games/steam.nix
   ];
 
   home.file = {

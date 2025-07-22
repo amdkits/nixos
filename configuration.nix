@@ -31,6 +31,13 @@
     LC_TIME = "en_IN";
   };
 
+  hardware.opengl = {
+  enable = true;
+  driSupport32Bit = true;
+  };
+
+  programs.steam.enable = true;
+
   fonts.packages = with pkgs; [
     font-awesome
     material-design-icons
@@ -90,4 +97,5 @@
 
   system.stateVersion = "25.05"; 
 
+programs.steam.enable = true;
 }
