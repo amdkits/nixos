@@ -36,8 +36,6 @@
   driSupport32Bit = true;
   };
 
-  programs.steam.enable = true;
-
   fonts.packages = with pkgs; [
     font-awesome
     material-design-icons
