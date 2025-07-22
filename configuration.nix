@@ -87,6 +87,7 @@
    curl
    tree
    gcc
+   gnumake
   ];
 
 programs.steam = {
