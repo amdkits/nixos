@@ -101,5 +101,4 @@ programs.steam = {
 
   system.stateVersion = "25.05"; 
 
-programs.steam.enable = true;
 }
