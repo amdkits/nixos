@@ -1,0 +1,6 @@
+*.swp
+*~
+/result
+/result-*
+/.DS_Store
+/secrets.nix
