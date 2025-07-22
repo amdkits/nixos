@@ -1,14 +1,12 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
-  home.packages = [
-    pkgs.ghostty
-  ];
+  programs.ghostty = {
+    enable = true;
 
-  settings = {
-      # Set gruvbox-dark as the theme
-      color-palette = "gruvbox-dark";
-    };
-
+    # Set theme using extraConfig
+    extraConfig = ''
+      color-palette = gruvbox-dark
+    '';
+  };
 }
-
