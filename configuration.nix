@@ -31,11 +31,6 @@
     LC_TIME = "en_IN";
   };
 
-  hardware.opengl = {
-  enable = true;
-  driSupport32Bit = true;
-  };
-
   fonts.packages = with pkgs; [
     font-awesome
     material-design-icons
@@ -90,6 +85,17 @@
    neofetch
    htop
   ];
+
+programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
+
+  hardware.opengl = {
+    enable = true;
+    driSupport32Bit = true;
+  };
 
   services.openssh.enable = true;
 
