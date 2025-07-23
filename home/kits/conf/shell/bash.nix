@@ -13,7 +13,7 @@
       stfu= "shutdown now";
       la = "ls -la";
       n = "nvim";
-      rebuild = "sudo nixos-rebuild switch --flake ~/.dotfiles.#kits";
+      rebuild = "sudo nixos-rebuild switch --flake .#kits";
     };
 
     bashrcExtra = ''
