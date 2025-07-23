@@ -1,12 +1,16 @@
-{ config, pkgs, inputs, lib, ... }:
-
 {
+  config,
+  pkgs,
+  inputs,
+  lib,
+  ...
+}: {
   home.username = "kits";
   home.homeDirectory = "/home/kits";
   home.stateVersion = "25.05";
   home.packages = [
   ];
-  
+
   imports = [
     ./home/kits/conf/term/ghostty.nix
     ./home/kits/conf/browser/brave.nix

@@ -1,34 +1,64 @@
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [ 
-      ./hardware-configuration.nix
-    ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    loader = {
+      systemd-boot = {
+        enable = true;
+      };
+      efi = {
+        canTouchEfiVariables = true;
+      };
+    };
+  };
 
-  networking.hostName = "amdkits"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;
+  networking = {
+    hostname = "amdkits";
+    networkmanager = {
+      enable = true;
+    };
+  };
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix = {
+    settings = {
+      experimental-features = ["nix-command" "flakes"];
+      auto-optimize-store = true;
+    };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
+  };
 
-  time.timeZone = "Asia/Kolkata";
+  time = {timeZone = "Asia/Kolkata";};
 
-  i18n.defaultLocale = "en_IN";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    supportedLocales = ["en_US.UTF-8/UTF-8"];
+    extraLocaleSettings = {
+      LC_ADDRESS = "en_US.UTF-8";
+      LC_IDENTIFICATION = "en_US.UTF-8";
+      LC_MEASUREMENT = "en_US.UTF-8";
+      LC_MONETARY = "en_US.UTF-8";
+      LC_NAME = "en_US.UTF-8";
+      LC_NUMERIC = "en_US.UTF-8";
+      LC_PAPER = "en_US.UTF-8";
+      LC_TELEPHONE = "en_US.UTF-8";
+      LC_TIME = "en_US.UTF-8";
+    };
+  };
 
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_IN";
-    LC_IDENTIFICATION = "en_IN";
-    LC_MEASUREMENT = "en_IN";
-    LC_MONETARY = "en_IN";
-    LC_NAME = "en_IN";
-    LC_NUMERIC = "en_IN";
-    LC_PAPER = "en_IN";
-    LC_TELEPHONE = "en_IN";
-    LC_TIME = "en_IN";
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
   };
 
   fonts.packages = with pkgs; [
@@ -42,61 +72,90 @@
     bibata-cursors
   ];
 
-  services.xserver.enable = true;
+  services = {
+    xserver = {
+      enable = true;
 
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+      displayManager = {
+        gdm = {
+          enable = true;
+        };
+      };
 
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
+      desktopManager = {
+        gnome = {
+          enable = true;
+        };
+      };
+
+      xkb = {
+        layout = "us";
+        variant = "";
+      };
+
+      # Enable touchpad support (enabled default in most desktopManager).
+      libinput = {
+        enable = true;
+      };
+    };
+
+    xserver = {
+    };
+
+    printing = {
+      enable = true;
+    };
+
+    pulseaudio = {
+      enable = true;
+    };
+
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
+
+    openssh = {
+      enable = true;
+    };
   };
 
-  services.printing.enable = true;
-
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
+  security = {
+    rtkit = {
+      enable = true;
+    };
   };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
   users.users.kits = {
     isNormalUser = true;
     description = "parashurama";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    ];
+    extraGroups = ["networkmanager" "wheel"];
+    # packages = with pkgs; [];
   };
 
   programs.firefox.enable = true;
 
-  nixpkgs.config.allowUnfree = true;
-
   environment.systemPackages = with pkgs; [
-   vim 
-   wget
-   git
-   gh
-   neofetch
-   htop
-   curl
-   tree
-   gcc
-   gnumake
-   # for doom-emacs
-   emacs30
-   fd
-   ripgrep
-   gnugrep
+    vim
+    wget
+    git
+    gh
+    neofetch
+    htop
+    curl
+    tree
+    gcc
+    gnumake
+    # for doom-emacs
+    emacs30
+    fd
+    ripgrep
+    gnugrep
   ];
 
-programs.steam = {
+  programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
@@ -107,8 +166,5 @@ programs.steam = {
     driSupport32Bit = true;
   };
 
-  services.openssh.enable = true;
-
-  system.stateVersion = "25.05"; 
-
+  system.stateVersion = "25.05";
 }
