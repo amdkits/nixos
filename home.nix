@@ -2,7 +2,7 @@
 
 {
   home.username = "kits";
-  home.homeDirectory = "~/.dotfiles";
+  home.homeDirectory = "/home/kits/.dotfiles";
   home.stateVersion = "25.05";
   home.packages = [
   ];
