@@ -30,7 +30,7 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             backupFileExtension = "backup";
-            users.syk = import ./home.nix;
+            users.kits = import ./home.nix;
             extraSpecialArgs = {
               inherit inputs;
             };
