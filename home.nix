@@ -19,7 +19,6 @@
   ];
 
   home.file = {
-     ".config/ghostty/config".source = lib.mkForce "/home/kits/dotfiles/ghostty/config";
   };
 
   home.sessionVariables = {
