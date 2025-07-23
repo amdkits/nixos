@@ -25,5 +25,6 @@
     # EDITOR = "emacs";
   };
 
+  home-manager.backupFileExtension = "backup";
   programs.home-manager.enable = true;
 }
