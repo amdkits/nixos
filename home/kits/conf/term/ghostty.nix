@@ -3,10 +3,10 @@
 {
   programs.ghostty = {
     enable = true;
-
-    # Set theme using extraConfig
-    extraConfig = ''
-      color-palette = gruvbox-dark
-    '';
   };
+  {
+  xdg.configFile."ghostty/config".text = ''
+    color-palette = gruvbox-dark
+  '';
+}
 }
