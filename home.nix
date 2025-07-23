@@ -2,7 +2,7 @@
 
 {
   home.username = "kits";
-  home.homeDirectory = "/home/kits/.dotfiles";
+  home.homeDirectory = lib.mkForce "/home/kits/.dotfiles";
   home.stateVersion = "25.05";
   home.packages = [
   ];
