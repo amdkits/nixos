@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   programs.bash = {
     enable = true;
 
@@ -10,7 +12,7 @@
       ".." = "cd ..";
       c = "clear";
       q = "exit";
-      stfu= "shutdown now";
+      stfu = "shutdown now";
       la = "ls -la";
       n = "nvim";
       rebuild = "sudo nixos-rebuild switch --flake .#kits";

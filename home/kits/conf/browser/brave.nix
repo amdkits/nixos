@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     brave
   ];
@@ -12,4 +10,3 @@
     "x-scheme-handler/https" = "brave-browser.desktop";
   };
 }
-

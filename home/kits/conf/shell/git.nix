@@ -1,10 +1,8 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   programs.git = {
     enable = true;
 
-    userName  = "amdkits";
+    userName = "amdkits";
     userEmail = "kits.amd@gmail.com";
 
     extraConfig = {
