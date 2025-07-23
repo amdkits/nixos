@@ -19,12 +19,12 @@
   ];
 
   home.file = {
+     ".config/ghostty/config".source = lib.mkForce "/home/kits/dotfiles/ghostty/config";
   };
 
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
 
-  home-manager.backupFileExtension = "backup";
   programs.home-manager.enable = true;
 }
